@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to top, #ffd6e0, #fff0f5);
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3em;
+  color: #ff4d6d;
+  margin-top: 50px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Gift */
+.gift {
+  margin: 30px auto;
+  width: 120px;
+  height: 120px;
+  background: #ff6b81;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  animation: wiggle 1s infinite;
+}
+
+.gift:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 20px;
+  background: #ff4757;
+  top: 50px;
+}
+
+.gift:after {
+  content: "🎀";
+  position: absolute;
+  font-size: 40px;
+  top: -25px;
+  left: 35px;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(0); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Message box */
+#message {
+  display: none;
+  width: 70%;
+  margin: auto;
+  font-size: 1.2em;
+  color: #444;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px pink;
+}
+
+/* Image inside message */
+#message img {
+  width: 220px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px pink;
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  animation: float 10s infinite;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: #555;
+  left: 50%;
+  top: 80px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+.b1 { left: 10%; background: #ff6b6b; animation-delay: 0s; }
+.b2 { left: 30%; background: #feca57; animation-delay: 2s; }
+.b3 { left: 50%; background: #48dbfb; animation-delay: 4s; }
+.b4 { left: 70%; background: #1dd1a1; animation-delay: 6s; }
+.b5 { left: 90%; background: #ff9ff3; animation-delay: 8s; }
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday Pyang! 🎂</h1>
+
+<!-- Gift -->
+<div class="gift" onclick="showMessage()"></div>
+<p>Click the gift 🎁</p>
+
+<!-- Message -->
+<div id="message">
+  <!-- YOUR IMAGE HERE -->
+  <img src="f95cf6fb-3f5a-4e0f-8049-f019c76882bd.png" alt="Birthday Photo">
+  <p id="text"></p>
+</div>
+
+<!-- Music -->
+<button onclick="playMusic()">Play Music 🎶</button>
+<audio id="song" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3"></audio>
+
+<!-- Balloons -->
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+<div class="balloon b5"></div>
+
+<script>
+let text = `how can i say this? oh wait i can't because no exact words can ever made me express the friendship we've created in the last 2 years 💕
+it is filled with different memories for us to cherish ✨
+
+okay2 nice na akong english no? hahahahaha 😆
+
+btw pyang since 19 nmn ka pag amping ha basig last bday na ni nimo 😭
+and i know have you're up and downs but remember to focus on the ups para diretso kay lord 🙏
+
+kana lang ya enjoy sa buda sumbong tka kay tita 🙂`;
+
+let i = 0;
+
+function showMessage() {
+  document.getElementById("message").style.display = "block";
+  typeWriter();
+}
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("text").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 30);
+  }
+}
+
+function playMusic() {
+  document.getElementById("song").play();
+}
+</script>
+
+</body>
+</html>
